@@ -7,7 +7,6 @@
 /tmp/*
 /vendor/*
 .github
-composer.json
 composer.lock
 
 # OS generated files #
