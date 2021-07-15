@@ -65,7 +65,7 @@ endif;
                 <h5 class="card-title">Edit Profile</h5>
             </div>
             <div class="card-body">
-                <?= $this->Form->create($user, ['novalidate']) ?>
+                <?= $this->Form->create($user, ['formnovalidate' => true, 'type' => 'POST']) ?>
                 <?php
                 if ($identity->user_role->title === 'Admin') :
                 ?>
@@ -77,15 +77,10 @@ endif;
                 <?php endif; ?>
                 <div class="row">
                     <div class="col-md-6">
-                        <?= $this->Form->control('username'); ?>
+                        <?= $this->Form->control('name'); ?>
                     </div>
                     <div class="col-md-6">
                         <?= $this->Form->control('password'); ?>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <?= $this->Form->control('name'); ?>
                     </div>
                 </div>
                 <div class="row">

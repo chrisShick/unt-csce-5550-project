@@ -128,12 +128,13 @@ class UsersController extends AppController
         ]);
 
         $this->Authorization->authorize($user);
-        unset($user->password);
 
         $countriesTbl = $this->getTableLocator()->get('Countries');
         $countries = $countriesTbl->find()
             ->order(['(iso = "US")' => 'DESC', 'title' => 'ASC'])
             ->indexBy('iso');
+
+        unset($user->password);
 
         if ($this->request->is(['post'])) {
             $data = $this->request->getData();
@@ -143,10 +144,19 @@ class UsersController extends AppController
                 unset($data['user_role']);
             }
 
+            if (!empty($data['country_code'])) {
+                $code = null;
+                $countryArray = $countries->toArray();
+                if (array_key_exists($data['country_code'], $countryArray )) {
+                    $code = $countryArray[$data['country_code']]->calling_code;
+                }
+                $data['country_code'] = $code;
+            }
+
             $user = $this->Users->patchEntity($user, $data);
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
-
+                unset($user->password);
                 return $this->redirect(['action' => 'view', $id]);
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));

@@ -35,7 +35,7 @@ $this->start('tb_body_start');
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <a class="navbar-brand" href="#">Paper Dashboard 2</a>
+                        <a class="navbar-brand" href="#">UNT CSCE 5550 Project</a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -63,25 +63,16 @@ $this->start('tb_body_start');
                                 </a>
                             </li>
                             <li class="nav-item btn-rotate dropdown">
-                                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="nc-icon nc-bell-55"></i>
+                                <a class="nav-link dropdown-toggle" href="/users" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="nc-icon nc-settings-gear-65"></i>
                                     <p>
-                                        <span class="d-lg-none d-md-block">Some Actions</span>
+                                        <span class="d-lg-none d-md-block">My Account</span>
                                     </p>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <a class="dropdown-item" href="/users/view/<?= h($identity->id); ?>">My Account</a>
+                                    <a class="dropdown-item" href="/logout">Logout</a>
                                 </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link btn-rotate" href="javascript:;">
-                                    <i class="nc-icon nc-settings-gear-65"></i>
-                                    <p>
-                                        <span class="d-lg-none d-md-block">Account</span>
-                                    </p>
-                                </a>
                             </li>
                         </ul>
                     </div>
