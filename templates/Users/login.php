@@ -14,6 +14,10 @@ $this->Html->css('main.css', ['block' => true]);
             </fieldset>
             <?= $this->Form->submit(__('Login'), ['class' => 'btn btn-primary btn-block']); ?>
             <?= $this->Form->end() ?>
+            <div class="text-center mt-3">
+                <p style="color:#9f0507;"><b>OR</b></p>
+                <a class="btn btn-primary btn-block" href="/register">Register Now</a>
+            </div>
         </div>
     </div>
 </div>

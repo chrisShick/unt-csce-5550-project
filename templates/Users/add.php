@@ -7,12 +7,13 @@
  */
 
 $this->extend('../layout/TwitterBootstrap/signin');
+$this->Html->css('main.css', ['block' => true]);
 ?>
 <div class="card col-sm-12 col-md-4">
+    <?= $this->Html->image('/img/logo-big.png', ['class' => 'img-fluid']) ?>
     <div class="card-body">
         <?= $this->Form->create($user) ?>
         <fieldset>
-            <legend><?= __('Add User') ?></legend>
             <?php
             echo $this->Form->control('username');
             echo '<div class="form-group">';
@@ -26,5 +27,9 @@ $this->extend('../layout/TwitterBootstrap/signin');
         </fieldset>
         <?= $this->Form->button(__('Register'), ['class' => 'btn btn-primary btn-block']) ?>
         <?= $this->Form->end() ?>
+        <div class="text-center mt-3">
+            <p style="color:#9f0507;"><b>OR</b></p>
+            <a class="btn btn-primary btn-block" href="/login">Login</a>
+        </div>
     </div>
 </div>
