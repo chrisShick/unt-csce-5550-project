@@ -97,7 +97,7 @@ return [
      */
     'Cache' => [
         'default' => [
-            'className' => FileEngine::class,
+            'className' => \Cake\Cache\Engine\RedisEngine::class,
             'path' => CACHE,
             'url' => env('CACHE_DEFAULT_URL', null),
         ],
@@ -109,8 +109,8 @@ return [
          * If you set 'className' => 'Null' core cache will be disabled.
          */
         '_cake_core_' => [
-            'className' => FileEngine::class,
-            'prefix' => 'myapp_cake_core_',
+            'className' => \Cake\Cache\Engine\RedisEngine::class,
+            'prefix' => 'csceproject_cake_core_',
             'path' => CACHE . 'persistent' . DS,
             'serialize' => true,
             'duration' => '+1 years',
@@ -124,8 +124,8 @@ return [
          * Duration will be set to '+2 minutes' in bootstrap.php when debug = true
          */
         '_cake_model_' => [
-            'className' => FileEngine::class,
-            'prefix' => 'myapp_cake_model_',
+            'className' => \Cake\Cache\Engine\RedisEngine::class,
+            'prefix' => 'csceproject_cake_model_',
             'path' => CACHE . 'models' . DS,
             'serialize' => true,
             'duration' => '+1 years',
@@ -138,8 +138,8 @@ return [
          * Duration will be set to '+2 seconds' in bootstrap.php when debug = true
          */
         '_cake_routes_' => [
-            'className' => FileEngine::class,
-            'prefix' => 'myapp_cake_routes_',
+            'className' => \Cake\Cache\Engine\RedisEngine::class,
+            'prefix' => 'csceproject_cake_routes_',
             'path' => CACHE,
             'serialize' => true,
             'duration' => '+1 years',
@@ -416,7 +416,7 @@ return [
      * To use database sessions, load the SQL file located at config/schema/sessions.sql
      */
     'Session' => [
-        'defaults' => 'php',
+        'defaults' => 'cache',
     ],
     'DebugKit' => [
         'ignoreAuthorization' => true,
